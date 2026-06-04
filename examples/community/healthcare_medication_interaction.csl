@@ -1,6 +1,6 @@
 // =============================================================
 // Healthcare Medication Interaction
-// Goal: Basic logic to restrict large external transfers.
+// Goal: Basic logic to restrict prescription of interacting medications
 // =============================================================
 
 CONFIG {
@@ -47,9 +47,19 @@ DOMAIN HelloWorld {
 
 
 
-    // Where the money is going
-    destination: {"INTERNAL", "EXTERNAL"}
-  }
+    //Pt Age
+    pt_age: INT
+
+    // Pt Pregnancy
+    pregnancy_status: BOOLEAN
+
+    // Current medications
+    current_meds: STRING
+
+    // eGFR below 30
+    egfr_lt_30: BOOLEAN
+
+
 
   // -----------------------------------------------------------
   // Rule: Transfers of 100 or more must stay INTERNAL.
