@@ -13,7 +13,7 @@ DOMAIN healthcare_medication_interaction {
   VARIABLES {
     // Medication Class Being Prescribed
     new_drug_class: "SSRI", "SNRI", "ANTICOAGULANT", "OPIOID", "BENZODIAZEPINE", "ACE INHIBITOR", "ARB", "BETA BLOCKER", "CALCIUM CHANNEL BLOCKER", "DIURETIC", "STATIN",
-    "ANTIPLATELET", "ANTIARRHYHMIC", "STIMULANT", "ANTIPSYCHOTIC", "NSAID", "ANTICONVULSANT", "PENICILLIN", "CEPHALOSPORIN", "MACROLIDE", "TETRACYCLINE", "FLUOROQINOLONE",
+    "ANTIPLATELET", "ANTIARRHYTHMIC", "STIMULANT", "ANTIPSYCHOTIC", "NSAID", "ANTICONVULSANT", "PENICILLIN", "CEPHALOSPORIN", "MACROLIDE", "TETRACYCLINE", "FLUOROQINOLONE",
     "ANTIVIRAL", "ANTIFUNGAL", "BIGUANIDE", "SULFONYLUREA", "INSULIN", "THYROID HORMONE", "CORTICOSTEROID", "BETA 2 AGONIST", "LEUKOTRIENE RECEPTOR ANTAGONIST",
     "PROTON PUMP INHIBITOR", "H2 BLOCKER", "MONOCLONAL ANTIBODY", "ALKYLATING AGENT", "IMMUNOSUPPRESSANT", "CHOLINESTERASE INHIBITOR", "COMT INHIBITOR", "OREXIN RECEPTOR AGONIST",
     "TRIPTAN", "ALPHA 1 BLOCKER", "5 ALPHA REDUCTASE INHIBITOR", "ANTICHOLINERGIC", "VASOPRESSIN RECEPTOR ANTAGONIST", "TNF INHIBITOR", "JAK INHIBITOR", "XANTHINE OXIDASE INHIBITOR",
@@ -21,7 +21,8 @@ DOMAIN healthcare_medication_interaction {
     "BIPHOSPHONATE", "SERM", "SARM", "AROMATASE INHIBITOR", "GNRH MODULATOR", "SGLT2 INHIBITOR", "NEPRILYSIN INHIBITOR", "ALDOSTERONE ANTAGONIST", "ERYTHROPOIESIS STIMULATOR",
     "THROMBOPOIETIN RECEPTOR AGONIST", "IRON CHELATOR", "5HT3 RECEPTOR ANTAGONIST", "NK1 RECEPTOR ANTAGONIST", "GI MOTILITY AGENT", "TOPICAL RETINOID", "CALCINEURIN INHIBITOR",
     "CHEMICAL CHELATOR", "CHOLINESTERASE REACTIVATOR", "OXAZOLIDINONE", "LIPOGLYCOPEPTIDE", "ACT", "INSTI", "PROTEASE INHIBITOR", "INHALED VOLATILE ANESTHETIC", "INTRAVENOUS INDUCTION AGENT",
-    "ESTER ANESTHETIC", "AMIDE ANESTHETIC", "ANTICHOLINESTERASE REVERSAL AGENT", "SELECTIVE RELAXANT BINDING AGENT", "ANTACID", "DIVALENT CATION" }
+    "ESTER ANESTHETIC", "AMIDE ANESTHETIC", "ANTICHOLINESTERASE REVERSAL AGENT", "SELECTIVE RELAXANT BINDING AGENT", "ANTACID", "DIVALENT CATION", "AZOLE ANTIFUNGAL", "METHOTREXATE",
+    "ORAL CONTRACEPTIVE" }
 
     // Interaction Severity
     interaction_severity: {"NONE", "MILD", "MODERATE", "MAJOR", "CONTRAINDICATED"}
@@ -122,16 +123,21 @@ DOMAIN healthcare_medication_interaction {
     SELECTIVE_RELAXANT_BINDING_AGENT: BOOLEAN
     ANTACID: BOOLEAN
     DIVALENT_CATION: BOOLEAN
+    AZOLE_ANTIFUNGAL: BOOLEAN
+    METHOTREXATE: BOOLEAN
+    ORAL_CONTRACEPTIVE: BOOLEAN
 
 
     // Pt Context Variables
     // age = age, bmi = body mass index, bsa = body surface area, preg = pregnancy_status, cm = current_meds, egfr = egfr less than 30
+    // seizure = history of seizure
     pt_age: INT
     pt_bmi: FLOAT
     pt_bsa: FLOAT
     preg: BOOLEAN
     cm: STRING
     egf: BOOLEAN
+    seizure: BOOLEAN
 
     // Pharmacist SignOff
     signoff: BOOLEAN
@@ -152,11 +158,65 @@ DOMAIN healthcare_medication_interaction {
     STATE_CONSTRAINT block_contraindicated {
     WHEN interaction_severity == "CONTRAINDICATED"
     THEN requires_escalation MUST NOT BE FALSE
-  }
+    }
 
-    // -----------------------------------------------------------
+   // ------------------------------------------------------------------
+    // Block Case 2: FLUOROQINOLONE + ANTIARRHYTHMIC
+    // Both inhibit potassium channels, delaying cardiac repolarization
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_antiarrhythmic {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND ANTIARRHYTHMIC == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    // ------------------------------------------------------------------
+    // Block Case 3: FLUOROQINOLONE + ANTIPSYCHOTIC
+    // Both inhibit potassium channels, delaying cardiac repolarization
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_antipsychotic {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND ANTIPSYCHOTIC == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    // ------------------------------------------------------------------
+    // Block Case 4: FLUOROQINOLONE + NSAID
+    // Increased risk of seizure
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_nsaid {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND NSAID == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    // ------------------------------------------------------------------
+    // Block Case 5: PENICILLIN + METHOTREXATE
+    // Possible toxic accumulation of METHOTREXATE
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_methotrexate {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND METHOTREXATE == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    // ------------------------------------------------------------------
+    // Block Case 6: PENICILLIN + ANTICOAGULANT
+    // Possible increased anticoagulation
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_anticoagulant {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND ANTICOAGULANT == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    
+
+
+
+
+
+
+    // -------------------------------------------------------------------------------------
+    // 
     // Escalation Cases
-    // -----------------------------------------------------------
+    //
+    // -------------------------------------------------------------------------------------
 
 
     // -----------------------------------------------------------
@@ -166,3 +226,34 @@ DOMAIN healthcare_medication_interaction {
     WHEN interaction_severity == "MAJOR"
     THEN requires_escalation MUST BE TRUE
   }
+
+    // ------------------------------------------------------------------
+    // Escalation Case 2: FLUOROQINOLONE + DIVALENT_CATION
+    // Fluoroquinolones chelate with divalent cations and antiacids
+    // resulting in decreased absorption when taken close together
+    // ------------------------------------------------------------------
+      STATE_CONSTRAINT block_fluoroquinolone_divalent_cation {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND DIVALENT_CATION == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+      }
+
+    // ------------------------------------------------------------------
+    // Escalation Case 3: FLUOROQINOLONE + ANTACID
+    // Fluoroquinolones chelate with divalent cations and antiacids
+    // resulting in decreased absorption when taken close together
+    // ------------------------------------------------------------------
+      STATE_CONSTRAINT block_fluoroquinolone_antacid {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND ANTACID == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+    // ------------------------------------------------------------------
+    // Escalation Case 4: PENICILLIN + ORAL_CONTRACEPTIVE
+    // Possible decreased efficacy of ORAL_CONTRACEPTIVE
+    // ------------------------------------------------------------------
+    STATE_CONSTRAINT block_fluoroquinolone_oralcontraceptive {
+      WHEN new_drug_class == "FLUOROQINOLONE" AND ORAL_CONTRACEPTIVE == TRUE
+      THEN requires_escalation MUST NOT BE FALSE
+    }
+
+
