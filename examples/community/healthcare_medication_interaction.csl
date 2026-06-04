@@ -8,7 +8,7 @@ CONFIG {
   CHECK_LOGICAL_CONSISTENCY = TRUE
 }
 
-DOMAIN HelloWorld {
+DOMAIN healthcare_medication_interaction {
 
   VARIABLES {
     // Medication Class Being Prescribed
@@ -32,6 +32,12 @@ DOMAIN HelloWorld {
     // NKA 
     no_known_allergies: BOOLEAN
 
+
+    // -----------------------------------------------------------
+    // Patient Current Drug Statuses
+    // -----------------------------------------------------------
+
+
     // SSRI status
     SSRI: BOOLEAN
 
@@ -45,28 +51,44 @@ DOMAIN HelloWorld {
     BENZODIAZEPINE: BOOLEAN
 
 
-
-
-    //Pt Age
+    // Pt Context Variables
     pt_age: INT
-
-    // Pt Pregnancy
     pregnancy_status: BOOLEAN
-
-    // Current medications
     current_meds: STRING
+    egfr_less_than_30: BOOLEAN
 
-    // eGFR below 30
-    egfr_lt_30: BOOLEAN
+    // Pharmacist SignOff
+    pharmd_signoff: BOOLEAN
 
+    // Escalation flag that is set to true when manual review is required
+    requires_escalation: BOOLEAN
 
-
-  // -----------------------------------------------------------
-  // Rule: Transfers of 100 or more must stay INTERNAL.
-  //       (Small transfers < 100 are allowed anywhere)
-  // -----------------------------------------------------------
-  STATE_CONSTRAINT limit_large_transfers {
-    WHEN amount >= 100
-    THEN destination MUST BE "INTERNAL"
-  }
 }
+    // -----------------------------------------------------------
+    // Block Cases
+    // -----------------------------------------------------------
+
+
+    // -----------------------------------------------------------
+    // Block Case 1: All contraindicated medds must require escalation
+    // -----------------------------------------------------------
+    STATE_CONSTRAINT block_contraindicated {
+    WHEN interaction_severity == "CONTRAINDICATED"
+    THEN requires_escalation MUST NOT BE FALSE
+  }
+
+
+
+    // -----------------------------------------------------------
+    // Escalation Cases
+    // -----------------------------------------------------------
+
+
+    // -----------------------------------------------------------
+    // Escalation Case 1: Major interaction requires human review
+    // -----------------------------------------------------------
+    STATE_CONSTRAINT escalate_major_interaction {
+    WHEN interaction_severity == "MAJOR"
+    THEN requires_escalation MUST BE TRUE
+  }
+
