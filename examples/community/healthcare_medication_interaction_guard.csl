@@ -53,6 +53,8 @@ DOMAIN healthcare_medication_interaction {
 
     // Pt Context Variables
     pt_age: INT
+    pt_bmi: FLOAT
+    pt_body_surface_area: FLOAT
     pregnancy_status: BOOLEAN
     current_meds: STRING
     egfr_less_than_30: BOOLEAN
@@ -64,6 +66,7 @@ DOMAIN healthcare_medication_interaction {
     requires_escalation: BOOLEAN
 
 }
+
     // -----------------------------------------------------------
     // Block Cases
     // -----------------------------------------------------------
@@ -76,8 +79,6 @@ DOMAIN healthcare_medication_interaction {
     WHEN interaction_severity == "CONTRAINDICATED"
     THEN requires_escalation MUST NOT BE FALSE
   }
-
-
 
     // -----------------------------------------------------------
     // Escalation Cases
