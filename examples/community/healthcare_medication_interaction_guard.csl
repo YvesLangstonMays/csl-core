@@ -1028,3 +1028,115 @@ DOMAIN healthcare_medication_interaction {
     AND interaction_effect = "ADDITIVE"
   }
 
+// -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + STATIN
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_statin {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND STATIN == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + ANTIARRHYTHMIC 
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_antiarrhythmic {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_immunosuppressant {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + CALCINEURIN INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_calcineurin_inhibitor {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND CALCINEURIN_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + NSAID
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_nsaid {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + OPIOID
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_opioid {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND OPIOID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + ALPHA 1 BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_alpha_1_blocker {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND ALPHA_1_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_antifungal {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + PROTEASE INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_protease_inhibitor {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CALCIUM CHANNEL BLOCKER + DIURETIC
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_calcium_channel_blocker_diuretic {
+    WHEN new_drug_class == "CALCIUM CHANNEL BLOCKER" AND DIURETIC == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
