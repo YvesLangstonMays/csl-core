@@ -967,7 +967,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + CHOLINESTERASE INHIBITOR
   // Severity: MODERATE, Effect: ADDITIVE
-  // Cholinesterase inhibitors slow heart rate via vagal tone; additive bradycardia with beta-blockers
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_cholinesterase_inhibitor {
     WHEN new_drug_class == "BETA BLOCKER" AND CHOLINESTERASE_INHIBITOR == TRUE
@@ -979,7 +978,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + DIURETIC
   // Severity: MILD, Effect: ADDITIVE
-  // Additive blood pressure lowering; minor risk of electrolyte-induced arrhythmia with hypokalemia from loop/thiazide diuretics
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_diuretic {
     WHEN new_drug_class == "BETA BLOCKER" AND DIURETIC == TRUE
@@ -990,7 +988,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + STIMULANT
   // Severity: MODERATE, Effect: MEDICAL REVERSAL
-  // Stimulants (amphetamines, pseudoephedrine) activate beta-adrenergic receptors; beta-blockers oppose this, leaving alpha stimulation unopposed → hypertension
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_stimulant {
     WHEN new_drug_class == "BETA BLOCKER" AND STIMULANT == TRUE
@@ -1002,7 +999,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + INHALED VOLATILE ANESTHETIC
   // Severity: MODERATE, Effect: ADDITIVE
-  // Additive myocardial depression and hypotension under general anesthesia
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_inhaled_volatile_anesthetic {
     WHEN new_drug_class == "BETA BLOCKER" AND INHALED_VOLATILE_ANESTHETIC == TRUE
@@ -1014,7 +1010,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + ANTIPSYCHOTIC
   // Severity: MODERATE, Effect: ADDITIVE
-  // Additive QTc prolongation and hypotension; some antipsychotics inhibit CYP2D6 → increased beta-blocker levels
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_antipsychotic {
     WHEN new_drug_class == "BETA BLOCKER" AND ANTIPSYCHOTIC == TRUE
@@ -1026,7 +1021,6 @@ DOMAIN healthcare_medication_interaction {
   // -----------------------------------------------------------
   // BETA BLOCKER + SGLT2 INHIBITOR
   // Severity: MILD, Effect: ADDITIVE
-  // Additive blood pressure reduction; beta-blockers may mask SGLT2-related volume depletion symptoms
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_beta_blocker_sglt2_inhibitor {
     WHEN new_drug_class == "BETA BLOCKER" AND SGLT2_INHIBITOR == TRUE
