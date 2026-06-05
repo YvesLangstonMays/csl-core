@@ -480,7 +480,7 @@ DOMAIN healthcare_medication_interaction {
     AND interaction_effect = "ADDITIVE"
     AND requires_escalation MUST BE TRUE
   }
-  
+
   // -----------------------------------------------------------
   // MACROLIDE + ANTIPSYCHOTIC
   // Severity: MAJOR, Effect: ADDITIVE
@@ -549,7 +549,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + OPIOID
-  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_opioid {
     WHEN new_drug_class == "MACROLIDE" AND OPIOID == TRUE
@@ -560,7 +560,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + BENZODIAZEPINE
-  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_benzodiazepine {
     WHEN new_drug_class == "MACROLIDE" AND BENZODIAZEPINE == TRUE
@@ -571,7 +571,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + TRIPTAN
-  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_triptan {
     WHEN new_drug_class == "MACROLIDE" AND TRIPTAN == TRUE
@@ -582,7 +582,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + METHOTREXATE
-  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_methotrexate {
     WHEN new_drug_class == "MACROLIDE" AND METHOTREXATE == TRUE
@@ -593,7 +593,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + CORTICOSTEROID
-  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_corticosteroid {
     WHEN new_drug_class == "MACROLIDE" AND CORTICOSTEROID == TRUE
@@ -604,7 +604,7 @@ DOMAIN healthcare_medication_interaction {
 
   // -----------------------------------------------------------
   // MACROLIDE + PROTEASE_INHIBITOR (HIV antiretrovirals)
-  // Severity: MAJOR | Effect: ALTERED METABOLISM
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_protease_inhibitor {
     WHEN new_drug_class == "MACROLIDE" AND PROTEASE_INHIBITOR == TRUE
