@@ -188,7 +188,7 @@ DOMAIN healthcare_medication_interaction {
   // FLUOROQUINOLONE + ANTIPSYCHOTIC
   // Severity: MAJOR, Effect: ADDITIVE
   // -----------------------------------------------------------
-  
+
   STATE_CONSTRAINT interaction_fluoroquinolone_antipsychotic {
     WHEN new_drug_class == "FLUOROQUINOLONE" AND ANTIPSYCHOTIC == TRUE
     THEN interaction_severity = "MAJOR"
@@ -325,7 +325,7 @@ DOMAIN healthcare_medication_interaction {
   }
 
   // -----------------------------------------------------------
-  // FLUOROQUINOLONE + CYCLOSPORINE (CALCINEURIN INHIBITOR)
+  // FLUOROQUINOLONE + CYCLOSPORINE 
   // Severity: MODERATE, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
 
@@ -357,4 +357,258 @@ DOMAIN healthcare_medication_interaction {
     WHEN new_drug_class == "FLUOROQUINOLONE" AND PROTON_PUMP_INHIBITOR == TRUE
     THEN interaction_severity = "MILD"
     AND interaction_effect = "ALTERED ABSORPTION"
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN interactions
+  // -----------------------------------------------------------
+
+
+  // -----------------------------------------------------------
+  // PENICILLIN + METHOTREXATE
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_methotrexate {
+    WHEN new_drug_class == "PENICILLIN" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // PENICILLIN + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_anticoagulant {
+    WHEN new_drug_class == "PENICILLIN" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN + ORAL_CONTRACEPTIVE
+  // Severity: MILD, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_oral_contraceptive {
+    WHEN new_drug_class == "PENICILLIN" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN + IMMUNOSUPPRESSANT
+  // Severity: MODERATE, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_immunosuppressant {
+    WHEN new_drug_class == "PENICILLIN" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN + NSAID 
+  // Severity: MILD, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_nsaid {
+    WHEN new_drug_class == "PENICILLIN" AND NSAID == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED METABOLISM"
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_anticonvulsant {
+    WHEN new_drug_class == "PENICILLIN" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PENICILLIN + PROTON PUMP INHIBITOR
+  // Severity: MILD, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_penicillin_ppi {
+    WHEN new_drug_class == "PENICILLIN" AND PROTON_PUMP_INHIBITOR == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED ABSORPTION"
+  }
+
+
+
+
+
+  // -----------------------------------------------------------
+  // MACROLIDE interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // MACROLIDE + STATIN
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_statin {
+    WHEN new_drug_class == "MACROLIDE" AND STATIN == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+    STATE_CONSTRAINT interaction_macrolide_anticoagulant {
+    WHEN new_drug_class == "MACROLIDE" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_antiarrhythmic {
+    WHEN new_drug_class == "MACROLIDE" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+  
+  // -----------------------------------------------------------
+  // MACROLIDE + ANTIPSYCHOTIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_antipsychotic {
+    WHEN new_drug_class == "MACROLIDE" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_immunosuppressant {
+    WHEN new_drug_class == "MACROLIDE" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + CALCINEURIN INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_calcineurin_inhibitor {
+    WHEN new_drug_class == "MACROLIDE" AND CALCINEURIN_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + ORAL_CONTRACEPTIVE
+  // Severity: MILD, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_oral_contraceptive {
+    WHEN new_drug_class == "MACROLIDE" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + ANTICONVULSANT (carbamazepine / valproate)
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+    STATE_CONSTRAINT interaction_macrolide_anticonvulsant {
+    WHEN new_drug_class == "MACROLIDE" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + SULFONYLUREA
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_sulfonylurea {
+    WHEN new_drug_class == "MACROLIDE" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + OPIOID
+  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_opioid {
+    WHEN new_drug_class == "MACROLIDE" AND OPIOID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + BENZODIAZEPINE
+  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_benzodiazepine {
+    WHEN new_drug_class == "MACROLIDE" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + TRIPTAN
+  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_triptan {
+    WHEN new_drug_class == "MACROLIDE" AND TRIPTAN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + METHOTREXATE
+  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_methotrexate {
+    WHEN new_drug_class == "MACROLIDE" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + CORTICOSTEROID
+  // Severity: MODERATE | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_corticosteroid {
+    WHEN new_drug_class == "MACROLIDE" AND CORTICOSTEROID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // MACROLIDE + PROTEASE_INHIBITOR (HIV antiretrovirals)
+  // Severity: MAJOR | Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_macrolide_protease_inhibitor {
+    WHEN new_drug_class == "MACROLIDE" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
   }
