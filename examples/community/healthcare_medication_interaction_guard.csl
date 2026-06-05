@@ -603,7 +603,7 @@ DOMAIN healthcare_medication_interaction {
   }
 
   // -----------------------------------------------------------
-  // MACROLIDE + PROTEASE_INHIBITOR (HIV antiretrovirals)
+  // MACROLIDE + PROTEASE_INHIBITOR 
   // Severity: MAJOR, Effect: ALTERED METABOLISM
   // -----------------------------------------------------------
   STATE_CONSTRAINT interaction_macrolide_protease_inhibitor {
@@ -612,3 +612,425 @@ DOMAIN healthcare_medication_interaction {
     AND interaction_effect = "ALTERED METABOLISM"
     AND requires_escalation MUST BE TRUE
   }
+
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + DIVALENT_CATION
+  // Severity: MAJOR, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_divalent_cation {
+    WHEN new_drug_class == "TETRACYCLINE" AND DIVALENT_CATION == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + ANTACID
+  // Severity: MAJOR, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_antacid {
+    WHEN new_drug_class == "TETRACYCLINE" AND ANTACID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + ISOTRETINOIN
+  // Severity: CONTRAINDICATED, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_topical_retinoid {
+    WHEN new_drug_class == "TETRACYCLINE" AND TOPICAL_RETINOID == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_anticoagulant {
+    WHEN new_drug_class == "TETRACYCLINE" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + ORAL_CONTRACEPTIVE
+  // Severity: MILD, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_oral_contraceptive {
+    WHEN new_drug_class == "TETRACYCLINE" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + PROTON_PUMP_INHIBITOR
+  // Severity: MILD, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_ppi {
+    WHEN new_drug_class == "TETRACYCLINE" AND PROTON_PUMP_INHIBITOR == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED ABSORPTION"
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + PENICILLIN
+  // Severity: MODERATE, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_penicillin {
+    WHEN new_drug_class == "TETRACYCLINE" AND PENICILLIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + IMMUNOSUPPRESSANT
+  // Severity: MODERATE, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_immunosuppressant {
+    WHEN new_drug_class == "TETRACYCLINE" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // TETRACYCLINE + STATIN
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_statin {
+    WHEN new_drug_class == "TETRACYCLINE" AND STATIN == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + BISPHOSPHONATE
+  // Severity: MILD, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_bisphosphonate {
+    WHEN new_drug_class == "TETRACYCLINE" AND BISPHOSPHONATE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED ABSORPTION"
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + METHOTREXATE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_methotrexate {
+    WHEN new_drug_class == "TETRACYCLINE" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+  // -----------------------------------------------------------
+  // TETRACYCLINE + INSULIN / SULFONYLUREA
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tetracycline_insulin {
+    WHEN new_drug_class == "TETRACYCLINE" AND INSULIN == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  STATE_CONSTRAINT interaction_tetracycline_sulfonylurea {
+    WHEN new_drug_class == "TETRACYCLINE" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + ALDOSTERONE ANTAGONIST
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_aldosterone_antagonist {
+    WHEN new_drug_class == "ACE INHIBITOR" AND ALDOSTERONE_ANTAGONIST == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + DIURETIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_diuretic {
+    WHEN new_drug_class == "ACE INHIBITOR" AND DIURETIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + NSAID
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_nsaid {
+    WHEN new_drug_class == "ACE INHIBITOR" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + ARB
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_arb {
+    WHEN new_drug_class == "ACE INHIBITOR" AND ARB == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + NEPRILYSIN INHIBITOR
+  // Severity: CONTRAINDICATED, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_neprilysin_inhibitor {
+    WHEN new_drug_class == "ACE INHIBITOR" AND NEPRILYSIN_INHIBITOR == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + LITHIUM 
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_iron_chelator {
+    WHEN new_drug_class == "ACE INHIBITOR" AND IRON_CHELATOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + IMMUNOSUPPRESSANT 
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_immunosuppressant {
+    WHEN new_drug_class == "ACE INHIBITOR" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + INSULIN / SULFONYLUREA
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_insulin {
+    WHEN new_drug_class == "ACE INHIBITOR" AND INSULIN == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  STATE_CONSTRAINT interaction_ace_inhibitor_sulfonylurea {
+    WHEN new_drug_class == "ACE INHIBITOR" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + ANTICOAGULANT
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_anticoagulant {
+    WHEN new_drug_class == "ACE INHIBITOR" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + VASOPRESSOR
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_vasopressor {
+    WHEN new_drug_class == "ACE INHIBITOR" AND VASOPRESSOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + SGLT2 INHIBITOR
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_sglt2_inhibitor {
+    WHEN new_drug_class == "ACE INHIBITOR" AND SGLT2_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACE INHIBITOR + ALPHA 1 BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ace_inhibitor_alpha_1_blocker {
+    WHEN new_drug_class == "ACE INHIBITOR" AND ALPHA_1_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + CALCIUM CHANNEL BLOCKER (verapamil / diltiazem)
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_calcium_channel_blocker {
+    WHEN new_drug_class == "BETA BLOCKER" AND CALCIUM_CHANNEL_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + ANTIARRHYTHMIC 
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_antiarrhythmic {
+    WHEN new_drug_class == "BETA BLOCKER" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + INSULIN / SULFONYLUREA
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_insulin {
+    WHEN new_drug_class == "BETA BLOCKER" AND INSULIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_beta_blocker_sulfonylurea {
+    WHEN new_drug_class == "BETA BLOCKER" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + NSAID
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_nsaid {
+    WHEN new_drug_class == "BETA BLOCKER" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + ALPHA 1 BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_alpha_1_blocker {
+    WHEN new_drug_class == "BETA BLOCKER" AND ALPHA_1_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + VASOPRESSOR
+  // Severity: MAJOR, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_vasopressor {
+    WHEN new_drug_class == "BETA BLOCKER" AND VASOPRESSOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + CHOLINESTERASE INHIBITOR
+  // Severity: MODERATE, Effect: ADDITIVE
+  // Cholinesterase inhibitors slow heart rate via vagal tone; additive bradycardia with beta-blockers
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_cholinesterase_inhibitor {
+    WHEN new_drug_class == "BETA BLOCKER" AND CHOLINESTERASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + DIURETIC
+  // Severity: MILD, Effect: ADDITIVE
+  // Additive blood pressure lowering; minor risk of electrolyte-induced arrhythmia with hypokalemia from loop/thiazide diuretics
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_diuretic {
+    WHEN new_drug_class == "BETA BLOCKER" AND DIURETIC == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + STIMULANT
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // Stimulants (amphetamines, pseudoephedrine) activate beta-adrenergic receptors; beta-blockers oppose this, leaving alpha stimulation unopposed → hypertension
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_stimulant {
+    WHEN new_drug_class == "BETA BLOCKER" AND STIMULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + INHALED VOLATILE ANESTHETIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // Additive myocardial depression and hypotension under general anesthesia
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_inhaled_volatile_anesthetic {
+    WHEN new_drug_class == "BETA BLOCKER" AND INHALED_VOLATILE_ANESTHETIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // Additive QTc prolongation and hypotension; some antipsychotics inhibit CYP2D6 → increased beta-blocker levels
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_antipsychotic {
+    WHEN new_drug_class == "BETA BLOCKER" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BETA BLOCKER + SGLT2 INHIBITOR
+  // Severity: MILD, Effect: ADDITIVE
+  // Additive blood pressure reduction; beta-blockers may mask SGLT2-related volume depletion symptoms
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_beta_blocker_sglt2_inhibitor {
+    WHEN new_drug_class == "BETA BLOCKER" AND SGLT2_INHIBITOR == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
