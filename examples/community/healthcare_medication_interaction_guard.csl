@@ -1391,3 +1391,1848 @@ DOMAIN healthcare_medication_interaction {
     AND interaction_effect = "ALTERED METABOLISM"
     AND requires_escalation MUST BE TRUE
   }
+
+  // -----------------------------------------------------------
+  // SSRI interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // SSRI + MAOI
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_comt_inhibitor {
+    WHEN new_drug_class == "SSRI" AND COMT_INHIBITOR == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + TRIPTAN
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_triptan {
+    WHEN new_drug_class == "SSRI" AND TRIPTAN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + ANTICOAGULANT
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_anticoagulant {
+    WHEN new_drug_class == "SSRI" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + NSAID
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_nsaid {
+    WHEN new_drug_class == "SSRI" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + ANTIPLATELET
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_antiplatelet {
+    WHEN new_drug_class == "SSRI" AND ANTIPLATELET == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_antipsychotic {
+    WHEN new_drug_class == "SSRI" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + OPIOID 
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_opioid {
+    WHEN new_drug_class == "SSRI" AND OPIOID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + LITHIUM
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_iron_chelator {
+    WHEN new_drug_class == "SSRI" AND IRON_CHELATOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_anticonvulsant {
+    WHEN new_drug_class == "SSRI" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + STIMULANT
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_stimulant {
+    WHEN new_drug_class == "SSRI" AND STIMULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + BENZODIAZEPINE
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_benzodiazepine {
+    WHEN new_drug_class == "SSRI" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // SSRI + ANTIFUNGAL 
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_ssri_antifungal {
+    WHEN new_drug_class == "SSRI" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // SNRI interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // SNRI + MAOI
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_comt_inhibitor {
+    WHEN new_drug_class == "SNRI" AND COMT_INHIBITOR == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + TRIPTAN
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_triptan {
+    WHEN new_drug_class == "SNRI" AND TRIPTAN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + ANTICOAGULANT
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_anticoagulant {
+    WHEN new_drug_class == "SNRI" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + NSAID
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_nsaid {
+    WHEN new_drug_class == "SNRI" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + OPIOID
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_opioid {
+    WHEN new_drug_class == "SNRI" AND OPIOID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + STIMULANT
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_stimulant {
+    WHEN new_drug_class == "SNRI" AND STIMULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_antipsychotic {
+    WHEN new_drug_class == "SNRI" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SNRI + ANTIPLATELET
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_snri_antiplatelet {
+    WHEN new_drug_class == "SNRI" AND ANTIPLATELET == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // OPIOID interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // OPIOID + BENZODIAZEPINE
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_benzodiazepine {
+    WHEN new_drug_class == "OPIOID" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + COMT INHIBITOR
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_comt_inhibitor {
+    WHEN new_drug_class == "OPIOID" AND COMT_INHIBITOR == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_antipsychotic {
+    WHEN new_drug_class == "OPIOID" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + ANTICHOLINERGIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_anticholinergic {
+    WHEN new_drug_class == "OPIOID" AND ANTICHOLINERGIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + MUSCLE RELAXANT / NEUROMUSCULAR BLOCKER
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_neuromuscular_blocker {
+    WHEN new_drug_class == "OPIOID" AND NEUROMUSCULAR_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + INHALED VOLATILE ANESTHETIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_inhaled_volatile_anesthetic {
+    WHEN new_drug_class == "OPIOID" AND INHALED_VOLATILE_ANESTHETIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + STIMULANT
+  // Severity: MILD, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_stimulant {
+    WHEN new_drug_class == "OPIOID" AND STIMULANT == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "MEDICAL REVERSAL"
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + ANTICONVULSANT 
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_anticonvulsant {
+    WHEN new_drug_class == "OPIOID" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + PROTEASE INHIBITOR
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_protease_inhibitor {
+    WHEN new_drug_class == "OPIOID" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + ANTIFUNGAL
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_antifungal {
+    WHEN new_drug_class == "OPIOID" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OPIOID + GI MOTILITY AGENT
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_opioid_gi_motility_agent {
+    WHEN new_drug_class == "OPIOID" AND GI_MOTILITY_AGENT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + OPIOID
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_opioid {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND OPIOID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_antipsychotic {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_anticonvulsant {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + ANTICHOLINERGIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_anticholinergic {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND ANTICHOLINERGIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + INHALED VOLATILE ANESTHETIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_inhaled_volatile_anesthetic {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND INHALED_VOLATILE_ANESTHETIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + ANTIFUNGAL
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_antifungal {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + PROTEASE INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_protease_inhibitor {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + NEUROMUSCULAR BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_neuromuscular_blocker {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND NEUROMUSCULAR_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // BENZODIAZEPINE + OREXIN RECEPTOR AGONIST
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_benzodiazepine_orexin_receptor_agonist {
+    WHEN new_drug_class == "BENZODIAZEPINE" AND OREXIN_RECEPTOR_AGONIST == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + NSAID
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_nsaid {
+    WHEN new_drug_class == "CORTICOSTEROID" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + INSULIN / SULFONYLUREA / BIGUANIDE
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_insulin {
+    WHEN new_drug_class == "CORTICOSTEROID" AND INSULIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_corticosteroid_sulfonylurea {
+    WHEN new_drug_class == "CORTICOSTEROID" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_corticosteroid_biguanide {
+    WHEN new_drug_class == "CORTICOSTEROID" AND BIGUANIDE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + LIVE VACCINE 
+  // Severity: CONTRAINDICATED, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_monoclonal_antibody {
+    WHEN new_drug_class == "CORTICOSTEROID" AND MONOCLONAL_ANTIBODY == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_immunosuppressant {
+    WHEN new_drug_class == "CORTICOSTEROID" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + DIURETIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_diuretic {
+    WHEN new_drug_class == "CORTICOSTEROID" AND DIURETIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_anticoagulant {
+    WHEN new_drug_class == "CORTICOSTEROID" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_anticonvulsant {
+    WHEN new_drug_class == "CORTICOSTEROID" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + BISPHOSPHONATE
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_bisphosphonate {
+    WHEN new_drug_class == "CORTICOSTEROID" AND BISPHOSPHONATE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + TNF INHIBITOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_tnf_inhibitor {
+    WHEN new_drug_class == "CORTICOSTEROID" AND TNF_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + JAK INHIBITOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_jak_inhibitor {
+    WHEN new_drug_class == "CORTICOSTEROID" AND JAK_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CORTICOSTEROID + FLUOROQUINOLONE
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_corticosteroid_fluoroquinolone {
+    WHEN new_drug_class == "CORTICOSTEROID" AND FLUOROQUINOLONE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_antiarrhythmic {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + ANTICHOLINERGIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_anticholinergic {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND ANTICHOLINERGIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + STIMULANT
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_stimulant {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND STIMULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + CHOLINESTERASE INHIBITOR
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_cholinesterase_inhibitor {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND CHOLINESTERASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_anticonvulsant {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + INSULIN / SULFONYLUREA
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_insulin {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND INSULIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_antipsychotic_sulfonylurea {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + ALPHA 1 BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_alpha_1_blocker {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND ALPHA_1_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + PROTEASE INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_protease_inhibitor {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTIPSYCHOTIC + LITHIUM
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_antipsychotic_iron_chelator {
+    WHEN new_drug_class == "ANTIPSYCHOTIC" AND IRON_CHELATOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + TNF INHIBITOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_tnf_inhibitor {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND TNF_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + JAK INHIBITOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_jak_inhibitor {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND JAK_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + ANTICONVULSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_anticonvulsant {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_antifungal {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + NSAID
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_nsaid {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + DIURETIC
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_diuretic {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND DIURETIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + ANTIVIRAL
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_antiviral {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND ANTIVIRAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + STATIN
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_statin {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND STATIN == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + METHOTREXATE
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_methotrexate {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // IMMUNOSUPPRESSANT + ALKYLATING AGENT
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_immunosuppressant_alkylating_agent {
+    WHEN new_drug_class == "IMMUNOSUPPRESSANT" AND ALKYLATING_AGENT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + STATIN
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_statin {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND STATIN == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + ANTICOAGULANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_anticoagulant {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + BENZODIAZEPINE
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_benzodiazepine {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + CALCIUM CHANNEL BLOCKER
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_calcium_channel_blocker {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND CALCIUM_CHANNEL_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + ANTIPSYCHOTIC
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_antipsychotic {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + OPIOID
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_opioid {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND OPIOID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + ANTIFUNGAL
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_antifungal {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + ORAL CONTRACEPTIVE
+  // Severity: MODERATE, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_oral_contraceptive {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + ANTICONVULSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_anticonvulsant {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // PROTEASE INHIBITOR + INSTI
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_protease_inhibitor_insti {
+    WHEN new_drug_class == "PROTEASE INHIBITOR" AND INSTI == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + STATIN
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_statin {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND STATIN == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + ANTICOAGULANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_anticoagulant {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_antiarrhythmic {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + ANTIPSYCHOTIC
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_antipsychotic {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_immunosuppressant {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + BENZODIAZEPINE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_benzodiazepine {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + ORAL CONTRACEPTIVE
+  // Severity: MILD, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_oral_contraceptive {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED METABOLISM"
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + ANTICONVULSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_anticonvulsant {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + SULFONYLUREA
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_sulfonylurea {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AZOLE ANTIFUNGAL + CALCIUM CHANNEL BLOCKER
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_azole_antifungal_calcium_channel_blocker {
+    WHEN new_drug_class == "AZOLE ANTIFUNGAL" AND CALCIUM_CHANNEL_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // DIURETIC interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // DIURETIC + ACE INHIBITOR / ARB
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_ace_inhibitor {
+    WHEN new_drug_class == "DIURETIC" AND ACE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_diuretic_arb {
+    WHEN new_drug_class == "DIURETIC" AND ARB == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + NSAID
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_nsaid {
+    WHEN new_drug_class == "DIURETIC" AND NSAID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_antiarrhythmic {
+    WHEN new_drug_class == "DIURETIC" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + LITHIUM (IRON CHELATOR proxy)
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_iron_chelator {
+    WHEN new_drug_class == "DIURETIC" AND IRON_CHELATOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + INSULIN / SULFONYLUREA
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_insulin {
+    WHEN new_drug_class == "DIURETIC" AND INSULIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_diuretic_sulfonylurea {
+    WHEN new_drug_class == "DIURETIC" AND SULFONYLUREA == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + NEUROMUSCULAR BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_neuromuscular_blocker {
+    WHEN new_drug_class == "DIURETIC" AND NEUROMUSCULAR_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // DIURETIC + SGLT2 INHIBITOR
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_diuretic_sglt2_inhibitor {
+    WHEN new_drug_class == "DIURETIC" AND SGLT2_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + ORAL CONTRACEPTIVE
+  // Severity: MAJOR, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_oral_contraceptive {
+    WHEN new_drug_class == "ANTICONVULSANT" AND ORAL_CONTRACEPTIVE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + ANTICOAGULANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_anticoagulant {
+    WHEN new_drug_class == "ANTICONVULSANT" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + STATIN
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_statin {
+    WHEN new_drug_class == "ANTICONVULSANT" AND STATIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + THYROID HORMONE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_thyroid_hormone {
+    WHEN new_drug_class == "ANTICONVULSANT" AND THYROID_HORMONE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + METHOTREXATE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_methotrexate {
+    WHEN new_drug_class == "ANTICONVULSANT" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + CORTICOSTEROID
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_corticosteroid {
+    WHEN new_drug_class == "ANTICONVULSANT" AND CORTICOSTEROID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICONVULSANT + BIGUANIDE
+  // Severity: MILD, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticonvulsant_biguanide {
+    WHEN new_drug_class == "ANTICONVULSANT" AND BIGUANIDE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED METABOLISM"
+  }
+
+
+  // -----------------------------------------------------------
+  // STIMULANT interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // STIMULANT + COMT INHIBITOR (MAOI proxy)
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_stimulant_comt_inhibitor {
+    WHEN new_drug_class == "STIMULANT" AND COMT_INHIBITOR == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // STIMULANT + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_stimulant_antiarrhythmic {
+    WHEN new_drug_class == "STIMULANT" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STIMULANT + ANTIHYPERTENSIVE (ACE INHIBITOR proxy)
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_stimulant_ace_inhibitor {
+    WHEN new_drug_class == "STIMULANT" AND ACE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STIMULANT + VASOPRESSOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_stimulant_vasopressor {
+    WHEN new_drug_class == "STIMULANT" AND VASOPRESSOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STIMULANT + THYROID HORMONE
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_stimulant_thyroid_hormone {
+    WHEN new_drug_class == "STIMULANT" AND THYROID_HORMONE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC + CHOLINESTERASE INHIBITOR
+  // Severity: MAJOR, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticholinergic_cholinesterase_inhibitor {
+    WHEN new_drug_class == "ANTICHOLINERGIC" AND CHOLINESTERASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC + ANTIPSYCHOTIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticholinergic_antipsychotic {
+    WHEN new_drug_class == "ANTICHOLINERGIC" AND ANTIPSYCHOTIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC + OPIOID
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticholinergic_opioid {
+    WHEN new_drug_class == "ANTICHOLINERGIC" AND OPIOID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC + BENZODIAZEPINE
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticholinergic_benzodiazepine {
+    WHEN new_drug_class == "ANTICHOLINERGIC" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICHOLINERGIC + GI MOTILITY AGENT
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticholinergic_gi_motility_agent {
+    WHEN new_drug_class == "ANTICHOLINERGIC" AND GI_MOTILITY_AGENT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // ANESTHETIC interactions (INHALED VOLATILE, IV INDUCTION,
+  // ESTER/AMIDE LOCAL ANESTHETICS)
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // INHALED VOLATILE ANESTHETIC + NEUROMUSCULAR BLOCKER
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_inhaled_volatile_anesthetic_neuromuscular_blocker {
+    WHEN new_drug_class == "INHALED VOLATILE ANESTHETIC" AND NEUROMUSCULAR_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INHALED VOLATILE ANESTHETIC + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_inhaled_volatile_anesthetic_antiarrhythmic {
+    WHEN new_drug_class == "INHALED VOLATILE ANESTHETIC" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INHALED VOLATILE ANESTHETIC + VASOPRESSOR
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_inhaled_volatile_anesthetic_vasopressor {
+    WHEN new_drug_class == "INHALED VOLATILE ANESTHETIC" AND VASOPRESSOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INTRAVENOUS INDUCTION AGENT + OPIOID
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_iv_induction_agent_opioid {
+    WHEN new_drug_class == "INTRAVENOUS INDUCTION AGENT" AND OPIOID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INTRAVENOUS INDUCTION AGENT + BENZODIAZEPINE
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_iv_induction_agent_benzodiazepine {
+    WHEN new_drug_class == "INTRAVENOUS INDUCTION AGENT" AND BENZODIAZEPINE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INTRAVENOUS INDUCTION AGENT + ANTIHYPERTENSIVE (ACE INHIBITOR proxy)
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_iv_induction_agent_ace_inhibitor {
+    WHEN new_drug_class == "INTRAVENOUS INDUCTION AGENT" AND ACE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AMIDE ANESTHETIC + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_amide_anesthetic_antiarrhythmic {
+    WHEN new_drug_class == "AMIDE ANESTHETIC" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // AMIDE ANESTHETIC + BETA BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_amide_anesthetic_beta_blocker {
+    WHEN new_drug_class == "AMIDE ANESTHETIC" AND BETA_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // NEUROMUSCULAR BLOCKER + ANTICHOLINESTERASE REVERSAL AGENT
+  // Severity: MODERATE, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_neuromuscular_blocker_anticholinesterase_reversal {
+    WHEN new_drug_class == "NEUROMUSCULAR BLOCKER" AND ANTICHOLINESTERASE_REVERSAL_AGENT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // NEUROMUSCULAR BLOCKER + AMINOGLYCOSIDE (ANTIVIRAL proxy)
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_neuromuscular_blocker_antiviral {
+    WHEN new_drug_class == "NEUROMUSCULAR BLOCKER" AND ANTIVIRAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // NEUROMUSCULAR BLOCKER + DIURETIC (loop diuretics)
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_neuromuscular_blocker_diuretic {
+    WHEN new_drug_class == "NEUROMUSCULAR BLOCKER" AND DIURETIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // TNF INHIBITOR interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // TNF INHIBITOR + JAK INHIBITOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tnf_inhibitor_jak_inhibitor {
+    WHEN new_drug_class == "TNF INHIBITOR" AND JAK_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TNF INHIBITOR + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tnf_inhibitor_immunosuppressant {
+    WHEN new_drug_class == "TNF INHIBITOR" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TNF INHIBITOR + ALKYLATING AGENT
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tnf_inhibitor_alkylating_agent {
+    WHEN new_drug_class == "TNF INHIBITOR" AND ALKYLATING_AGENT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // TNF INHIBITOR + ANTIVIRAL
+  // Severity: MODERATE, Effect: THERAPEUTIC FAILURE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_tnf_inhibitor_antiviral {
+    WHEN new_drug_class == "TNF INHIBITOR" AND ANTIVIRAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "THERAPEUTIC FAILURE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // SGLT2 INHIBITOR interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // SGLT2 INHIBITOR + DIURETIC
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_sglt2_inhibitor_diuretic {
+    WHEN new_drug_class == "SGLT2 INHIBITOR" AND DIURETIC == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SGLT2 INHIBITOR + INSULIN
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_sglt2_inhibitor_insulin {
+    WHEN new_drug_class == "SGLT2 INHIBITOR" AND INSULIN == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // SGLT2 INHIBITOR + ACE INHIBITOR
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_sglt2_inhibitor_ace_inhibitor {
+    WHEN new_drug_class == "SGLT2 INHIBITOR" AND ACE_INHIBITOR == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // THYROID HORMONE interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // THYROID HORMONE + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thyroid_hormone_anticoagulant {
+    WHEN new_drug_class == "THYROID HORMONE" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // THYROID HORMONE + ANTACID / DIVALENT CATION
+  // Severity: MAJOR, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thyroid_hormone_antacid {
+    WHEN new_drug_class == "THYROID HORMONE" AND ANTACID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_thyroid_hormone_divalent_cation {
+    WHEN new_drug_class == "THYROID HORMONE" AND DIVALENT_CATION == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // THYROID HORMONE + STIMULANT
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thyroid_hormone_stimulant {
+    WHEN new_drug_class == "THYROID HORMONE" AND STIMULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // THYROID HORMONE + CALCIUM CHANNEL BLOCKER
+  // Severity: MILD, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thyroid_hormone_calcium_channel_blocker {
+    WHEN new_drug_class == "THYROID HORMONE" AND CALCIUM_CHANNEL_BLOCKER == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "MEDICAL REVERSAL"
+  }
+
+
+  // -----------------------------------------------------------
+  // OXAZOLIDINONE interactions (linezolid)
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // OXAZOLIDINONE + SSRI / SNRI
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_oxazolidinone_ssri {
+    WHEN new_drug_class == "OXAZOLIDINONE" AND SSRI == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  STATE_CONSTRAINT interaction_oxazolidinone_snri {
+    WHEN new_drug_class == "OXAZOLIDINONE" AND SNRI == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // OXAZOLIDINONE + OPIOID (tramadol / meperidine)
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_oxazolidinone_opioid {
+    WHEN new_drug_class == "OXAZOLIDINONE" AND OPIOID == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // OXAZOLIDINONE + STIMULANT
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_oxazolidinone_stimulant {
+    WHEN new_drug_class == "OXAZOLIDINONE" AND STIMULANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // OXAZOLIDINONE + VASOPRESSOR
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_oxazolidinone_vasopressor {
+    WHEN new_drug_class == "OXAZOLIDINONE" AND VASOPRESSOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // INSTI interactions (integrase strand transfer inhibitors)
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // INSTI + ANTACID / DIVALENT CATION
+  // Severity: MAJOR, Effect: ALTERED ABSORPTION
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_insti_antacid {
+    WHEN new_drug_class == "INSTI" AND ANTACID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_insti_divalent_cation {
+    WHEN new_drug_class == "INSTI" AND DIVALENT_CATION == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED ABSORPTION"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INSTI + ANTICONVULSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_insti_anticonvulsant {
+    WHEN new_drug_class == "INSTI" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // INSTI + METHOTREXATE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_insti_methotrexate {
+    WHEN new_drug_class == "INSTI" AND METHOTREXATE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+
+  // -----------------------------------------------------------
+  // ACT (artemisinin combination therapy) interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ACT + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_act_antiarrhythmic {
+    WHEN new_drug_class == "ACT" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACT + ANTIFUNGAL
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_act_antifungal {
+    WHEN new_drug_class == "ACT" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ACT + ANTICONVULSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_act_anticonvulsant {
+    WHEN new_drug_class == "ACT" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // VASOPRESSOR + BETA BLOCKER
+  // Severity: MAJOR, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_vasopressor_beta_blocker {
+    WHEN new_drug_class == "VASOPRESSOR" AND BETA_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // VASOPRESSOR + ANTIARRHYTHMIC
+  // Severity: MAJOR, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_vasopressor_antiarrhythmic {
+    WHEN new_drug_class == "VASOPRESSOR" AND ANTIARRHYTHMIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // THROMBOLYTIC + ANTICOAGULANT
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thrombolytic_anticoagulant {
+    WHEN new_drug_class == "THROMBOLYTIC" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // THROMBOLYTIC + ANTIPLATELET
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thrombolytic_antiplatelet {
+    WHEN new_drug_class == "THROMBOLYTIC" AND ANTIPLATELET == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // THROMBOLYTIC + NSAID
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_thrombolytic_nsaid {
+    WHEN new_drug_class == "THROMBOLYTIC" AND NSAID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CHOLINESTERASE INHIBITOR + ANTICHOLINERGIC
+  // Severity: MAJOR, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_cholinesterase_inhibitor_anticholinergic {
+    WHEN new_drug_class == "CHOLINESTERASE INHIBITOR" AND ANTICHOLINERGIC == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CHOLINESTERASE INHIBITOR + NEUROMUSCULAR BLOCKER
+  // Severity: MAJOR, Effect: MEDICAL REVERSAL
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_cholinesterase_inhibitor_neuromuscular_blocker {
+    WHEN new_drug_class == "CHOLINESTERASE INHIBITOR" AND NEUROMUSCULAR_BLOCKER == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "MEDICAL REVERSAL"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // CHOLINESTERASE INHIBITOR + BETA BLOCKER
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_cholinesterase_inhibitor_beta_blocker {
+    WHEN new_drug_class == "CHOLINESTERASE INHIBITOR" AND BETA_BLOCKER == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
