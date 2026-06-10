@@ -1140,3 +1140,254 @@ DOMAIN healthcare_medication_interaction {
     THEN interaction_severity = "MILD"
     AND interaction_effect = "ADDITIVE"
   }
+
+  // -----------------------------------------------------------
+  // STATIN interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // STATIN + AZOLE ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_azole_antifungal {
+    WHEN new_drug_class == "STATIN" AND AZOLE_ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + MACROLIDE
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_macrolide {
+    WHEN new_drug_class == "STATIN" AND MACROLIDE == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + PROTEASE INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_protease_inhibitor {
+    WHEN new_drug_class == "STATIN" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + ANTICOAGULANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_anticoagulant {
+    WHEN new_drug_class == "STATIN" AND ANTICOAGULANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + IMMUNOSUPPRESSANT
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_immunosuppressant {
+    WHEN new_drug_class == "STATIN" AND IMMUNOSUPPRESSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + CALCINEURIN INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_calcineurin_inhibitor {
+    WHEN new_drug_class == "STATIN" AND CALCINEURIN_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_antifungal {
+    WHEN new_drug_class == "STATIN" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + THYROID HORMONE
+  // Severity: MILD, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_thyroid_hormone {
+    WHEN new_drug_class == "STATIN" AND THYROID_HORMONE == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ALTERED METABOLISM"
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + CORTICOSTEROID
+  // Severity: MILD, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_corticosteroid {
+    WHEN new_drug_class == "STATIN" AND CORTICOSTEROID == TRUE
+    THEN interaction_severity = "MILD"
+    AND interaction_effect = "ADDITIVE"
+  }
+
+  // -----------------------------------------------------------
+  // STATIN + ANTICONVULSANT
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_statin_anticonvulsant {
+    WHEN new_drug_class == "STATIN" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT interactions
+  // -----------------------------------------------------------
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + NSAID / ANTIPLATELET
+  // Severity: MAJOR, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_nsaid {
+    WHEN new_drug_class == "ANTICOAGULANT" AND NSAID == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_anticoagulant_antiplatelet {
+    WHEN new_drug_class == "ANTICOAGULANT" AND ANTIPLATELET == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + SSRI / SNRI
+  // Severity: MODERATE, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_ssri {
+    WHEN new_drug_class == "ANTICOAGULANT" AND SSRI == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  STATE_CONSTRAINT interaction_anticoagulant_snri {
+    WHEN new_drug_class == "ANTICOAGULANT" AND SNRI == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + AZOLE ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_azole_antifungal {
+    WHEN new_drug_class == "ANTICOAGULANT" AND AZOLE_ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + ANTIFUNGAL
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_antifungal {
+    WHEN new_drug_class == "ANTICOAGULANT" AND ANTIFUNGAL == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + ANTICONVULSANT 
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_anticonvulsant {
+    WHEN new_drug_class == "ANTICOAGULANT" AND ANTICONVULSANT == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + THROMBOLYTIC
+  // Severity: CONTRAINDICATED, Effect: SYNERGISTIC
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_thrombolytic {
+    WHEN new_drug_class == "ANTICOAGULANT" AND THROMBOLYTIC == TRUE
+    THEN interaction_severity = "CONTRAINDICATED"
+    AND interaction_effect = "SYNERGISTIC"
+    AND requires_escalation MUST NOT BE FALSE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + CORTICOSTEROID
+  // Severity: MODERATE, Effect: ADDITIVE
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_corticosteroid {
+    WHEN new_drug_class == "ANTICOAGULANT" AND CORTICOSTEROID == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ADDITIVE"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + THYROID HORMONE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_thyroid_hormone {
+    WHEN new_drug_class == "ANTICOAGULANT" AND THYROID_HORMONE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + PROTEASE INHIBITOR
+  // Severity: MAJOR, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_protease_inhibitor {
+    WHEN new_drug_class == "ANTICOAGULANT" AND PROTEASE_INHIBITOR == TRUE
+    THEN interaction_severity = "MAJOR"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + MACROLIDE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_macrolide {
+    WHEN new_drug_class == "ANTICOAGULANT" AND MACROLIDE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
+
+  // -----------------------------------------------------------
+  // ANTICOAGULANT + FLUOROQUINOLONE
+  // Severity: MODERATE, Effect: ALTERED METABOLISM
+  // -----------------------------------------------------------
+  STATE_CONSTRAINT interaction_anticoagulant_fluoroquinolone {
+    WHEN new_drug_class == "ANTICOAGULANT" AND FLUOROQUINOLONE == TRUE
+    THEN interaction_severity = "MODERATE"
+    AND interaction_effect = "ALTERED METABOLISM"
+    AND requires_escalation MUST BE TRUE
+  }
